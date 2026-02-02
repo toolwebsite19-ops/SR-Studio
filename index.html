@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR Studio | Websites That Grow Your Business</title>
+    <meta name="description" content="Professional website and app development services for Indian startups and businesses. Affordable, fast, and reliable web solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a0f;
+            --secondary: #12121a;
+            --accent-blue: #00d4ff;
+            --accent-purple: #9d4edd;
+            --accent-cyan: #00f5ff;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --border: rgba(255, 255, 255, 0.1);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #00d4ff 0%, #9d4edd 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-2);
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Floating Elements Animation */
+        .floating {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-purple);
+            filter: blur(100px);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-blue);
+            filter: blur(80px);
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Why Choose Us Features */
+        .why-us {
+            background: var(--secondary);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 0 2rem;
+            max-width: 1200px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            min-width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+        }
+
+        .feature-content h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Process */
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--accent-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--gradient-2);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0 1rem;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            max-width: 1000px;
+        }
+
+        .comparison-table-wrapper {
+            background: var(--secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 212, 255, 0.05);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table tr:hover td:first-child {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .check {
+            color: #00d4ff;
+            font-size: 1.2rem;
+        }
+
+        .cross {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+
+        .warning {
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+
+        .highlight-col {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+            group: portfolio;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 15, 0.95), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-cyan);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Sections */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            -webkit-text-fill-color: var(--text-secondary);
+        }
+
+        .pricing-tagline {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 0 0 2rem 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            color: var(--accent-cyan);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-note {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section-divider h3 {
+            display: inline-block;
+            background: var(--primary);
+            padding: 0 2rem;
+            position: relative;
+            color: var(--text-primary);
+            font-size: 1.75rem;
+        }
+
+        .monthly-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid var(--accent-cyan);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 400px;
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-2);
+            opacity: 0.1;
+        }
+
+        .about-visual i {
+            font-size: 8rem;
+            color: var(--accent-cyan);
+            opacity: 0.3;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ff6b6b;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .whatsapp-float i {
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        @keyframes whatsapp-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--secondary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .why-us {
+                padding: 2rem;
+                margin: 0;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+            }
+
+            .section-divider h3 {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">SR Studio</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#process" class="nav-link">Process</a></li>
+                <li><a href="#comparison" class="nav-link">Why Us</a></li>
+                <li><a href="#website-pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="floating floating-1"></div>
+        <div class="floating floating-2"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket" style="margin-right: 0.5rem;"></i>
+                Trusted by 100+ Indian Businesses
+            </div>
+            <h1>Websites That Grow Your Business</h1>
+            <p>We build affordable, professional websites and apps for Indian startups, shop owners, and creators. Get online fast with WhatsApp support and mobile-first design.</p>
+            <div class="hero-buttons">
+                <a href="#website-pricing" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Get Your Website
+                </a>
+                <a href="#work" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i>
+                    View Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="reveal">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Complete digital solutions designed for Indian businesses</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Website Development</h3>
+                <p>Beautiful, fast-loading websites that work perfectly on mobile phones. Perfect for small businesses looking to establish their online presence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>App Development</h3>
+                <p>Android and iOS apps that help you connect with customers on the go. From booking apps to e-commerce solutions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>Modern, clean designs that your customers will love. We focus on creating experiences that convert visitors into buyers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>E-commerce Solutions</h3>
+                <p>Start selling online with secure payment gateways including UPI, Paytm, and Razorpay integration. Perfect for retailers and D2C brands.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Landing Pages</h3>
+                <p>High-converting single-page websites for your marketing campaigns, product launches, or service promotions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Maintenance & Support</h3>
+                <p>We don't just build and leave. Get ongoing support, regular updates, and quick fixes whenever you need them.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Features -->
+    <section id="why-us" class="reveal">
+        <div class="why-us">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>The SR Studio advantage for Indian businesses</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Fast Delivery</h4>
+                        <p>Get your website live in 3-7 days. We understand that in business, time is money.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Affordable Pricing</h4>
+                        <p>Quality websites starting at just ₹4,999. No hidden charges, no surprises.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>WhatsApp Support</h4>
+                        <p>Direct WhatsApp support for quick queries and updates. No complicated ticket systems.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-screen"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Mobile-First Design</h4>
+                        <p>Most Indians browse on mobile. We design for mobile users first, ensuring you never miss a customer.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>SEO for India</h4>
+                        <p>Optimized for Google India and local search. Get found by customers in your city.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Reliable & Secure</h4>
+                        <p>SSL certificates, secure hosting, and regular backups to keep your business data safe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="reveal">
+        <div class="section-header">
+            <h2>Our Process</h2>
+            <p>Simple and transparent workflow</p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">Discussion</div>
+                <div class="step-desc">We understand your requirements over a quick call or WhatsApp</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Design</div>
+                <div class="step-desc">You approve the design before we start building</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Development</div>
+                <div class="step-desc">We build your website with clean, fast code</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">Testing</div>
+                <div class="step-desc">Thorough checking on mobile and desktop</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-title">Launch</div>
+                <div class="step-desc">Your website goes live!</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">6</div>
+                <div class="step-title">Support</div>
+                <div class="step-desc">Ongoing help and maintenance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section id="comparison" class="reveal comparison-section">
+        <div class="section-header">
+            <h2>Why Choose SR Studio?</h2>
+            <p>See how we compare with other options in the market</p>
+        </div>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Features</th>
+                        <th class="highlight-col">SR Studio</th>
+                        <th>Freelancer</th>
+                        <th>Big Agency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pricing</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> Affordable</td>
+                        <td><i class="fas fa-exclamation-triangle warning"></i> Variable</td>
+                        <td><i class="fas fa-times cross"></i> Expensive</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Speed</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> Fast (3-7 days)</td>
+                        <td><i class="fas fa-exclamation-triangle warning"></i> Uncertain</td>
+                        <td><i class="fas fa-times cross"></i> Slow</td>
+                    </tr>
+                    <tr>
+                        <td>Design Quality</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> Premium</td>
+                        <td><i class="fas fa-exclamation-triangle warning"></i> Inconsistent</td>
+                        <td><i class="fas fa-check check"></i> Good</td>
+                    </tr>
+                    <tr>
+                        <td>WhatsApp Support</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> 24/7 Available</td>
+                        <td><i class="fas fa-exclamation-triangle warning"></i> Limited</td>
+                        <td><i class="fas fa-times cross"></i> Tickets Only</td>
+                    </tr>
+                    <tr>
+                        <td>Customization</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> Full Flexibility</td>
+                        <td><i class="fas fa-check check"></i> Flexible</td>
+                        <td><i class="fas fa-times cross"></i> Rigid</td>
+                    </tr>
+                    <tr>
+                        <td>Post-Launch Support</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> Reliable</td>
+                        <td><i class="fas fa-times cross"></i> Unreliable</td>
+                        <td><i class="fas fa-check check"></i> Available</td>
+                    </tr>
+                    <tr>
+                        <td>Transparency</td>
+                        <td class="highlight-col"><i class="fas fa-check check"></i> No Hidden Costs</td>
+                        <td><i class="fas fa-exclamation-triangle warning"></i> Unclear</td>
+                        <td><i class="fas fa-times cross"></i> Hidden Charges</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="reveal">
+        <div class="section-header">
+            <h2>Our Work</h2>
+            <p>Recent projects delivered for Indian clients</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">E-commerce</span>
+                    <h3 class="portfolio-title">Kirana Store Online</h3>
+                    <p class="portfolio-desc">Local grocery store digitized with WhatsApp ordering</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">Healthcare</span>
+                    <h3 class="portfolio-title">Dr. Sharma Clinic</h3>
+                    <p class="portfolio-desc">Appointment booking website for Delhi-based doctor</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">Education</span>
+                    <h3 class="portfolio-title">Bright Coaching Classes</h3>
+                    <p class="portfolio-desc">Website for Mumbai-based tuition center</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-burger"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">Food Tech</span>
+                    <h3 class="portfolio-title">Spice Route Restaurant</h3>
+                    <p class="portfolio-desc">Menu website with online table booking</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">Real Estate</span>
+                    <h3 class="portfolio-title">Home Solutions Realty</h3>
+                    <p class="portfolio-desc">Property listing portal for Bangalore realtor</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">Creative</span>
+                    <h3 class="portfolio-title">Lens Media Studio</h3>
+                    <p class="portfolio-desc">Portfolio website for photography business</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Development Pricing -->
+    <section id="website-pricing" class="reveal">
+        <div class="section-header">
+            <h2>Website Development Plans</h2>
+            <p>Affordable packages designed for Indian businesses</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic Website</h3>
+                <div class="price">₹4,999<span> one-time</span></div>
+                <p class="pricing-tagline">Best for: Small businesses & personal brands</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Up to 3 Pages</li>
+                    <li><i class="fas fa-check"></i> Mobile Responsive Design</li>
+                    <li><i class="fas fa-check"></i> Basic SEO Setup</li>
+                    <li><i class="fas fa-check"></i> Contact Form Integration</li>
+                    <li><i class="fas fa-check"></i> WhatsApp Button</li>
+                    <li><i class="fas fa-check"></i> Delivery: 3-4 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Start Your Project</a>
+            </div>
+            <div class="pricing-card featured">
+                <span class="featured-badge">Most Popular</span>
+                <h3>Standard Website</h3>
+                <div class="price">₹9,999<span> one-time</span></div>
+                <p class="pricing-tagline">Best for: Growing businesses & startups</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Up to 6 Pages</li>
+                    <li><i class="fas fa-check"></i> Modern UI/UX Design</li>
+                    <li><i class="fas fa-check"></i> SEO Optimized Content</li>
+                    <li><i class="fas fa-check"></i> WhatsApp Integration</li>
+                    <li><i class="fas fa-check"></i> Free Domain Guidance</li>
+                    <li><i class="fas fa-check"></i> Social Media Links</li>
+                    <li><i class="fas fa-check"></i> Delivery: 5-7 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Your Website</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Premium Website</h3>
+                <div class="price">₹19,999<span> one-time</span></div>
+                <p class="pricing-tagline">Best for: Startups, agencies & e-commerce</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                    <li><i class="fas fa-check"></i> Premium Custom Design</li>
+                    <li><i class="fas fa-check"></i> Advanced SEO Package</li>
+                    <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    <li><i class="fas fa-check"></i> Admin Panel (CMS)</li>
+                    <li><i class="fas fa-check"></i> Priority WhatsApp Support</li>
+                    <li><i class="fas fa-check"></i> Delivery: 7-10 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Start Your Project</a>
+            </div>
+        </div>
+        <p class="pricing-note">*Prices may vary according to project complexity</p>
+    </section>
+
+    <!-- App Development Pricing -->
+    <section id="app-pricing" class="reveal">
+        <div class="section-header">
+            <h2>App Development Pricing</h2>
+            <p>Professional mobile apps for Android and iOS</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>App Basic</h3>
+                <div class="price">₹24,999<span> starting</span></div>
+                <p class="pricing-tagline">Best for: Simple apps & MVPs</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Android OR iOS</li>
+                    <li><i class="fas fa-check"></i> Up to 5 Screens</li>
+                    <li><i class="fas fa-check"></i> Basic UI Design</li>
+                    <li><i class="fas fa-check"></i> Simple Navigation</li>
+                    <li><i class="fas fa-check"></i> Delivery: 10-15 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Start Your Project</a>
+            </div>
+            <div class="pricing-card featured">
+                <span class="featured-badge">Recommended</span>
+                <h3>App Standard</h3>
+                <div class="price">₹49,999<span> starting</span></div>
+                <p class="pricing-tagline">Best for: Business apps & platforms</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Android + iOS</li>
+                    <li><i class="fas fa-check"></i> Up to 10 Screens</li>
+                    <li><i class="fas fa-check"></i> Modern UI/UX Design</li>
+                    <li><i class="fas fa-check"></i> API Integration</li>
+                    <li><i class="fas fa-check"></i> User Authentication</li>
+                    <li><i class="fas fa-check"></i> Delivery: 20-25 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Your App</a>
+            </div>
+            <div class="pricing-card">
+                <h3>App Premium</h3>
+                <div class="price">₹99,999<span> starting</span></div>
+                <p class="pricing-tagline">Best for: Complex apps & enterprises</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Android + iOS</li>
+                    <li><i class="fas fa-check"></i> Unlimited Screens</li>
+                    <li><i class="fas fa-check"></i> Advanced UI/UX</li>
+                    <li><i class="fas fa-check"></i> Admin Panel</li>
+                    <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                    <li><i class="fas fa-check"></i> Delivery: 30-40 Days</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Start Your Project</a>
+            </div>
+        </div>
+        <p class="pricing-note">*Final pricing depends on features, design, and app complexity.</p>
+    </section>
+
+    <!-- Maintenance Plans Section -->
+    <section id="maintenance" class="reveal">
+        <div class="section-header">
+            <h2>Website Maintenance Plans</h2>
+            <p>Keep your website secure, updated, and running smoothly</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <span class="monthly-badge">Monthly Plan</span>
+                <h3>Basic Care</h3>
+                <div class="price">₹999<span>/month</span></div>
+                <p class="pricing-tagline">Essential maintenance for small websites</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Content Updates</li>
+                    <li><i class="fas fa-check"></i> Security Checks</li>
+                    <li><i class="fas fa-check"></i> Minor Fixes</li>
+                    <li><i class="fas fa-check"></i> Email Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Choose Plan</a>
+            </div>
+            <div class="pricing-card featured">
+                <span class="featured-badge">Most Popular</span>
+                <span class="monthly-badge" style="margin-top: 1.5rem;">Monthly Plan</span>
+                <h3>Business Care</h3>
+                <div class="price">₹1,999<span>/month</span></div>
+                <p class="pricing-tagline">Complete care for business websites</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Everything in Basic</li>
+                    <li><i class="fas fa-check"></i> Speed Optimization</li>
+                    <li><i class="fas fa-check"></i> Backup & Monitoring</li>
+                    <li><i class="fas fa-check"></i> WhatsApp Support</li>
+                    <li><i class="fas fa-check"></i> Monthly Reports</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Choose Plan</a>
+            </div>
+            <div class="pricing-card">
+                <span class="monthly-badge">Monthly Plan</span>
+                <h3>Premium Care</h3>
+                <div class="price">₹3,999<span>/month</span></div>
+                <p class="pricing-tagline">Priority support for high-traffic sites</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Everything in Business</li>
+                    <li><i class="fas fa-check"></i> SEO Monitoring</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                    <li><i class="fas fa-check"></i> Monthly Performance Report</li>
+                    <li><i class="fas fa-check"></i> 24/7 Uptime Monitoring</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Choose Plan</a>
+            </div>
+        </div>
+        <p class="pricing-note">Prices may vary depending on website size and requirements.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="reveal">
+        <div class="about-content">
+            <div class="about-visual">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="about-text">
+                <h3>Helping Indian Businesses Go Digital</h3>
+                <p>SR Studio was started with a simple mission: make professional websites affordable for every Indian business owner. From local kirana stores to tech startups, we believe everyone deserves a beautiful online presence.</p>
+                <p>We understand the Indian market – from budget constraints to the importance of mobile-first design. That's why we offer flexible payment options, WhatsApp support, and quick turnaround times without compromising on quality.</p>
+                <p>Based in India but serving clients globally, we combine local understanding with world-class standards. Whether you're a shop owner in Jaipur or a consultant in Mumbai, SR Studio is here to help you succeed online.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>100+</h4>
+                        <p>Indian Businesses Served</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>3 Days</h4>
+                        <p>Average Delivery</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>24/7</h4>
+                        <p>WhatsApp Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="reveal">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Let's Build Your Website</h3>
+                <p>Free consultation available! Tell us about your project and we'll suggest the best solution for your budget.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp (Preferred)</h4>
+                            <p>+91 98765 43210</p>
+                            <small style="color: var(--accent-cyan);">Quick replies guaranteed!</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>hello@srstudio.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 98765 43210</p>
+                            <small style="color: var(--text-secondary);">Mon-Sat, 10 AM - 7 PM IST</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Serving clients across India & globally</p>
+                            <small style="color: var(--text-secondary);">Headquarters: Mumbai, Maharashtra</small>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.05); border-radius: 15px; border: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--accent-cyan);"><i class="fas fa-gift" style="margin-right: 0.5rem;"></i> Special Offer</h4>
+                    <p style="font-size: 0.9rem; margin: 0;">Mention you found us through our website and get 10% off your first project!</p>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name">
+                    <span class="error-message">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                    <span class="error-message">Please enter a valid email</span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (WhatsApp)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                    <span class="error-message">Please enter your phone number</span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your business and what you need..."></textarea>
+                    <span class="error-message">Please enter your message</span>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                    Send Message
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+                    Prefer WhatsApp? <a href="https://wa.me/919876543210?text=Hi%20SR%20Studio,%20I%20want%20a%20website/app%20for%20my%20business." style="color: var(--accent-cyan); text-decoration: none;" target="_blank">Click here to chat</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SR Studio</div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/919876543210?text=Hi%20SR%20Studio,%20I%20want%20a%20website/app%20for%20my%20business." target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 SR Studio. Made with ❤️ in India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919876543210?text=Hi%20SR%20Studio,%20I%20want%20a%20website/app%20for%20my%20business." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Form Validation
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(input) {
+            input.parentElement.classList.add('error');
+        }
+
+        function removeError(input) {
+            input.parentElement.classList.remove('error');
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                showError(nameInput);
+                isValid = false;
+            } else {
+                removeError(nameInput);
+            }
+
+            // Validate email
+            if (!validateEmail(emailInput.value.trim())) {
+                showError(emailInput);
+                isValid = false;
+            } else {
+                removeError(emailInput);
+            }
+
+            // Validate phone
+            if (phoneInput.value.trim() === '') {
+                showError(phoneInput);
+                isValid = false;
+            } else {
+                removeError(phoneInput);
+            }
+
+            // Validate message
+            if (messageInput.value.trim() === '') {
+                showError(messageInput);
+                isValid = false;
+            } else {
+                removeError(messageInput);
+            }
+
+            if (isValid) {
+                alert('Thank you for your message! We will contact you within 24 hours. Feel free to WhatsApp us for faster response.');
+                form.reset();
+            }
+        });
+
+        // Remove errors on input
+        [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
+            input.addEventListener('input', () => {
+                removeError(input);
+            });
+        });
+
+        // Smooth scroll polyfill for Safari
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
